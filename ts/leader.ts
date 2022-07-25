@@ -135,10 +135,15 @@ export class LeaderChooser {
             .join(', ')}`
         );
       }
-      let eligible = [this.appCandidate, ...this.addonCandidates].filter((c) =>
-        satisfies(c.version, this.appCandidate!.range, {
+      let eligible = [this.appCandidate, ...this.addonCandidates].filter((c) => {
+        console.log('versions', c.version, this.appCandidate!.range);
+        if (this.appCandidate!.range.includes('#')) {
+          return true;
+        }
+        return satisfies(c.version, this.appCandidate!.range, {
           includePrerelease: true,
         })
+      }
       );
       if (eligible.length === 0) {
         throw new Error(
