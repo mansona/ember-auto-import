@@ -12,6 +12,8 @@ If you're upgrading from 1.x to 2.x [see the upgrade guide](./docs/upgrade-guide
 
 ## Usage
 
+basic change
+
 Add whatever dependency you want to your project using NPM or yarn like:
 
 ```
